@@ -20,7 +20,7 @@ use std::time::{SystemTime, UNIX_EPOCH};
 #[path = "sys/stub.rs"]
 mod inner;
 
-#[cfg(unix)]
+#[cfg(all(target_arch="unix", not(target_arch="wasm32")))]
 #[path = "sys/unix.rs"]
 mod inner;
 
